@@ -1,0 +1,11 @@
+# s1 = input()
+# print(s1.upper())
+# print(s1.isupper())
+# print(s1.lower())
+# print(s1.islower())
+
+s2 = input()
+print(s2.title())
+print(s2.istitle())
+print(s2.capitalize())
+print(s2.swapcase())
