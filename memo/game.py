@@ -10,6 +10,7 @@ root.title("Memo")
 
 menu1 = Button(text="Can you translate\nENG -> RUS", width=300, height=7, command=lambda lang = "eng": startLevel(lang))
 menu2 = Button(text="Can you translate\nRUS -> ENG", width=300, height=7, command=lambda lang = "rus": startLevel(lang))
+menu1.config(bg="yellow")
 
 def showMenu():
     menu1.pack()
