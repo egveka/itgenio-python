@@ -28,6 +28,15 @@ class Warrior:
             f'\n{self.__class__.__name__} has {self.stamina} stamina left')
         print('---------------')
 
+    def __add__(self, target):
+        if isinstance(target, Warrior) or isinstance(target, Mage):
+            self.heals(target)
+        elif isinstance(target, list):
+            target.append(self)
+            print(f"{self.__class__.__name__} has entered the group of {self.__class__.__name__}s")
+        elif isinstance(target, int):
+            self.health += target
+            print("Health has been raised")
 
     def attacks(self, target):
         print('---------------')
@@ -35,6 +44,17 @@ class Warrior:
         target.health -= 3
         print(f'Health of {target.__class__.__name__} decreased to {target.health}')
         print('---------------')
+    
+    def __sub__(self, target):
+        if isinstance(target, Warrior) or isinstance(target, Mage):
+            target.health -= 3
+            print(f"{self.__class__.__name__} attacks {target.__class__.__name__}, he has {target.health} health left")
+        elif isinstance(target, list):
+            target.remove(self)
+            print(f"{self.__class__.__name__} has left the group of {self.__class__.__name__}s")
+        elif isinstance(target, int):
+            self.health -= target
+            print(f"Health has been decreased by {target}")
 
 
 class Mage:
@@ -67,4 +87,10 @@ class Mage:
         print('---------------')
     
 unit1 = Warrior()
-unit1()
+unit2 = Mage()
+squad = []
+unit1 - unit2
+unit1 + squad
+unit1 - squad
+unit1 - 5
+unit1 - 10
